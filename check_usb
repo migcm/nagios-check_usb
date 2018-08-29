@@ -1,0 +1,32 @@
+#!/bin/bash
+
+man(){
+        echo -e "\n*******"
+        echo "Check if a USB is plug-in to a computer or server."
+		echo "To use this plugin it's necessary to have 'lsusb' installed on the machine where this script will be executed."
+        echo "The USB ID can be found by executing 'lsusb' on the command line."
+        echo "The plugin will return CRITICAL status if one of the USB identifiers isn't found."
+        echo "*******"
+
+        echo -e "\n------- check_usb written by Miguel Calvo (ES), v1.0, 29.08.2018 -------\n"
+
+        echo -e "\nSyntax:"
+        echo -e "\tcheck_usb USB-ID [USB-ID:]\n"
+        echo "Example: check_usb 016e:0423 03ab:2312"
+}
+
+if [ $# -gt 0 ]
+then
+        for var in "$@"
+        do
+                if ! lsusb | grep $var > /dev/null ; then
+                        echo "CRITICAL - USB ID '$var' not found."
+                        exit 2
+                fi
+        done
+
+        echo "OK - USB ID's '$@' are plugged in."
+        exit 0
+else
+        man
+fi
