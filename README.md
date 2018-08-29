@@ -1,6 +1,6 @@
 # nagios-check_usb
 
-Check if a USB is plug-in to a computer or server.
+NRPE Plugin - Check if a USB is plug-in to a computer or server.
 
 To use this plugin it's necessary to have 'lsusb' installed on the machine where this script will be executed.
 The USB identifier can be found by executing 'lsusb' on the command line.
