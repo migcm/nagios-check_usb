@@ -7,7 +7,7 @@ The USB ID can be found by executing 'lsusb' on the command line. The TAG can be
 The plugin will return CRITICAL status if one of the USB identifiers isn't found.
 
 ### Syntax:
-    ```check_usb usbID[-TAG] [usbID[-TAG]]```
+```check_usb usbID[-TAG] [usbID[-TAG]]```
 
 
 ### Examples:
